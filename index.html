@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PORTFÓLIO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Lembre-se das regras de SEO, o main é a parte principal, as demais são tecnicamente inferiores como as sections -->
+
     <nav class="navegacao">
         <ul>
             <li>
@@ -18,9 +22,73 @@
                 <a href="#projetos">Projetos</a>
             </li>
             <li>
-                <a href="#contatos">Contato</a>
+                <a href="#contato">Contato</a>
             </li>
         </ul>
     </nav>
+
+    <main id="inicio" class="cabecalho">
+        <div>
+           <img src="./img/pedro.jpg" alt="Foto de Pedro Tiago" class="foto-perfil">
+           <h1>Pedro Tiago</h1>
+           <P>Desenvolvedor</P>
+        </div>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam minus doloribus et. Numquam nulla cumque vitae, quos ut nam, molestias cupiditate fugiat dolore vero vel fuga, ullam quam non beatae!
+            </p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+
+        <h2 class="projetos-titulos">Meus Projetos</h2>
+
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="./img/dash.png" alt="Projeto 1" class="projetos-imagem">
+                <h3 class="info-projetos">POWERBI</h3>
+                <p class="paragrafo-projetos">Analise de Dados e processos de ETL com o Microsoft POWERBI para visualização de dados em Dashboards</p>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/pandas.jpg" alt="Projeto 2" class="projetos-imagem">
+                <h3 class="info-projetos">Analise de Dados com Pandas</h3>
+                <p class="paragrafo-projetos">Analise de dados estatisticos através da biblioteca Pandas do Python</p>
+            </div>
+
+            <div class="projetos-card">
+                <img src="./img/java.jpg" alt="Projeto 3" class="projetos-imagem">
+                <h3 class="info-projetos">Progamando com JAVA</h3>
+                <p class="paragrafo-projetos">Sistemas desenvolvidos através de programação em JAVA</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contato" class="contato">
+
+        <h2 class="contato-titulo"></h2>
+
+        <form class="formulario-contato" id="formulario">
+
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form">
+            </div>
+
+            <div class="grupo-form">
+                <textarea placeholder="Digite sua Mensagem" class="text-form"></textarea>
+            </div>
+
+        </form>
+
+    </section>
+
 </body>
 </html>
