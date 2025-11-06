@@ -1,0 +1,256 @@
+/* o '*' engloba tudo, as propriedades dentro dele são zeradas, porque cada navegador tem seus valores de margin, padding, etc */
+
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* deixar o scroll do mouse mais suave no site*/
+}
+
+:root { /* a raiz do projeto, cada traço é como se fosse uma variável */
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--escuro); /* cor de fundo */
+    color: var(--claro); /* cor geral dos textos */
+}
+
+.navegacao {
+    top: 0; /* garantir que fique sempre no topo */
+    padding: 1.5em; /* espaçamento interno entre os itens de navegação*/
+    position: fixed; /* a lista de navegação fica fixada na visualização */
+    background-color: rgba(15, 23, 42, 0.8); /* cor de fundo da navegação */
+    width: 100%; /* preenchimento */
+    z-index: 100%; /* fica na frente de todo mundo */
+}
+
+.menu{
+    display: flex; /* deixa os itens um ao lado do outro */
+    list-style: none; /* tira o ponto de cada item */
+    gap: 3rem; /* dá mais espaço entre os itens */
+    justify-content: center; /*centraliza os itens*/
+}
+
+.menu-link {
+    text-decoration: none; /*retira o sublinhado*/
+    color: var(--claro); /* cor do texto */
+    font-weight: 500; /* grossura do texto */
+    position: relative; /**/
+    padding: 0.5rem 0; /* espaço de 0.5 em cima e embaixo de cada item, e 0 pros lados*/
+}
+
+.menu-link::after{ /* coloca um conteudo DEPOIS*/
+    content: ''; /* é obrigátorio colocar o content, mesmo vazio*/
+    height: 2px;
+    width: 0;
+    position: absolute; 
+    bottom: 0; /* coloca embaixo*/
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after { /* hover é após passar o mouse*/
+    width: 100%;
+}
+
+.cabecalho {
+    min-height: 100vh; /*o minimo vai ser ocupar a tela toda*/
+    display: flex; /*desbloqueia o justify e o align que alinham os itens na horizontal e vertical*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* coloca os itens um sobre o outro, o ROW coloca tudo em linha*/
+}
+
+.foto-perfil{
+    width: 310px;
+    height: 310px;
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+    border-radius: 50%;
+    border: 4px solid var(--vidro);
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: var(--primaria);
+    font-weight: bold;
+    margin: 3px;
+
+}
+
+.cabecalho-sub-titulo {
+    font-size: 1.5rem;
+    color: var(--claro);
+}
+
+.sobre{
+    padding: 6rem 2rem;
+}
+
+.sobre-titulo{
+    font-size: 3rem;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sobre-caixa{
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto; /* usa quando quer centralizar alguma coisa*/
+    border-radius: 20px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sobre-paragrafo{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.projetos{
+    padding: 6rem 2rem;
+
+}
+
+.projetos-imagem {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; /*como ele se encaixa, terá de cobrir a area respeitando os tamanhos reservados a ele*/
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.projetos-caixa {
+    margin: 0 auto; 
+    display: grid; /*organizar os itens como caixinhas*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /*cria colunas que vao se repetir e ser iguais, o autofit vai encaixar elas no espaço com tamanho minimo de 300px e maximo a tela toda (1fr)*/
+    gap: 2rem; /* espaço entre os itens*/
+    max-width: 1200px; /*limite até onde expandir*/
+
+}
+
+.projetos-card{
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.projetos-card:hover{
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    transform: translateY(-10px) scale(1.03); /*rotaciona e deixa maior*/
+}
+
+.info-projetos{
+    margin-bottom: 5px;
+}
+
+.paragrafo-projetos{
+    color: rgba(226,232,240,0.8);
+    line-height: 1.25rem;
+}
+
+.caixa-texto-projeto{
+    padding: 1.5rem;
+}
+
+.contato {
+    padding: 6rem 2rem;
+}
+
+.contato-titulo{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.formulario-contato{
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+.campo-form{
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none; /*tira a linha quando clica em cima*/
+}
+
+.campo-form:focus {
+    border-color: var(--secundaria);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem;
+}
+
+.botao-form{
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5 ease;
+}
+
+.botao-form:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* vai ficar atrás de tudo*/
+    opacity: 0.5;
+    background: 
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 60%),
+    radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 50%), var(--maisEscuro);
+}
+
+@keyframes flutuar { /* animação */
+    0%, 100% { /* no momento 0% e no 100% estará na posição 0 */
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-15px);
+    }
+}
